@@ -1,0 +1,51 @@
+---
+import "../styles/global.css"; 
+import TableHeader from './TableHeader.astro'
+
+const rows = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+---
+
+<div class="table-container">
+    <table class="w-4xl">
+        <TableHeader />
+        <tbody>
+            <tr id="row">
+                <th class="thstyle">Fri<br>23<br>March</th>
+                {
+                    rows.map( (index) => <td class="tdcell">row{index}</td>)
+                }
+            </tr>
+            <tr>
+                <th class="thstyle">Sat<br>24<br>March</th>
+                {
+                    rows.map( (index) => <td class="tdcell">row{index}</td>)
+                }
+                <!-- <td class="tdcell">row1</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td>
+                <td class="tdcell">row2</td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<style>
+    table {
+      @apply border;
+    }
+</style>
+
+<script>
+    const tr = document.getElementById('row')
+    tr?.addEventListener('click', () => window.location.href='orig')
+</script>
