@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["typedSql"]
+}
+
+datasource db {
+  provider = "sqlite" // Specifies SQLite as the database provider
+  url      = env("DATABASE_URL") // Connection string from .env file
+}
+
+model flat_bookings {
+  id   Int    @id @default(autoincrement())
+  // user   users     @relation(fields: [userId], references: [id])
+  date String
+  fkeyh8 users?  @relation(fields: [h8], references: [id], name: "fkh8")
+  fkeyh9 users?  @relation(fields: [h9], references: [id], name: "fkh9")
+  fkeyh10 users?  @relation(fields: [h10], references: [id], name: "fkh10")
+  fkeyh11 users?  @relation(fields: [h11], references: [id], name: "fkh11")
+  fkeyh12 users?  @relation(fields: [h12], references: [id], name: "fkh12")
+  fkeyh13 users?  @relation(fields: [h13], references: [id], name: "fkh13")
+  fkeyh14 users?  @relation(fields: [h14], references: [id], name: "fkh14")
+  fkeyh15 users?  @relation(fields: [h15], references: [id], name: "fkh15")
+  fkeyh16 users?  @relation(fields: [h16], references: [id], name: "fkh16")
+  fkeyh17 users?  @relation(fields: [h17], references: [id], name: "fkh17")
+  fkeyh18 users?  @relation(fields: [h18], references: [id], name: "fkh18")
+  fkeyh19 users?  @relation(fields: [h19], references: [id], name: "fkh19")
+  fkeyh20 users?  @relation(fields: [h20], references: [id], name: "fkh20")
+  fkeyh21 users?  @relation(fields: [h21], references: [id], name: "fkh21")
+  h8   Int  @default(1)
+  h9   Int  @default(1)
+  h10  Int  @default(1)
+  h11  Int  @default(1)
+  h12  Int  @default(1)
+  h13  Int  @default(1)
+  h14  Int  @default(1)
+  h15  Int  @default(1)
+  h16  Int  @default(1)
+  h17  Int  @default(1)
+  h18  Int  @default(1)
+  h19  Int  @default(1)
+  h20  Int  @default(1)
+  h21  Int  @default(1)
+}
+
+model users {
+  id            Int             @id @default(autoincrement())
+  username      String
+  fkh8Matches flat_bookings[]  @relation("fkh8")
+  fkh9Matches flat_bookings[]  @relation("fkh9")
+  fkh10Matches flat_bookings[]  @relation("fkh10")
+  fkh11Matches flat_bookings[]  @relation("fkh11")
+  fkh12Matches flat_bookings[]  @relation("fkh12")
+  fkh13Matches flat_bookings[]  @relation("fkh13")
+  fkh14Matches flat_bookings[]  @relation("fkh14")
+  fkh15Matches flat_bookings[]  @relation("fkh15")
+  fkh16Matches flat_bookings[]  @relation("fkh16")
+  fkh17Matches flat_bookings[]  @relation("fkh17")
+  fkh18Matches flat_bookings[]  @relation("fkh18")
+  fkh19Matches flat_bookings[]  @relation("fkh19")
+  fkh20Matches flat_bookings[]  @relation("fkh20")
+  fkh21Matches flat_bookings[]  @relation("fkh21")
+}
+
+model EmployeeSales {
+  salesId Int @id @default(autoincrement())
+  employeeName  String
+  month String
+  salesAmount   Int
+}
+
+//model User {
+//  id      Int      @id @default(autoincrement())
+//  email   String   @unique
+//  name    String?
+//  role    Role     @default(USER)
+//  posts   Post[]
+//  profile Profile?
+//}
