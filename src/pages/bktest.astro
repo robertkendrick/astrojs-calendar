@@ -1,8 +1,12 @@
 ---
-import  GetData  from '../components/GetData.astro'
+import  {GetData}  from '../components/GetData'
+import Movies from '../components/Movies'
+
 const array1 = [1,2,3,4,5,6,7,8]
 const me = "bob"
-let ep
+const ep = await GetData()
+    // .then( (data) => data)
+const data = Movies()
 ---
 
 <h1>bktest</h1>
@@ -10,6 +14,11 @@ let ep
 {
 array1.map( (key) => <p>{key}</p> )
 }
-{ep = GetData()}
+
+<Movies />
+
+{
+ep.map( (item) => <p>{item.employeeName}</p>)
+}
 
 <p>{me}</p>

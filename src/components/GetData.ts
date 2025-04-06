@@ -1,12 +1,9 @@
----
-import { Prisma } from "@prisma/client"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
-async function GetData() {
+export async function GetData() {
     const employeeSales = await prisma.employeeSales.findMany()
-    console.log(employeeSales)
+    console.log('Getdata(): ', employeeSales)
     return employeeSales
 }
----
