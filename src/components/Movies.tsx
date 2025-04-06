@@ -8,8 +8,12 @@ console.log(data);
 
 const Movies: FunctionalComponent = () => {
   // Output the result to the page
-  return <div>{JSON.stringify(data)}</div>;
-    // return <div>{data[3]}</div>
+  return (
+    <>
+    <div>{JSON.stringify(data)}</div>
+    <p>And that is it</p>
+    </>
+  )
 };
 
 export default Movies;
