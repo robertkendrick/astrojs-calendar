@@ -1,14 +1,19 @@
 ---
-import  {GetData}  from '../components/GetData'
+import  {GetEmployeeSales}  from '../components/GetData'
+import  {GetBookings} from '../components/GetData'
 import Movies from '../components/Movies'
 
 const array1 = [1,2,3,4,5,6,7,8]
 const me = "bob"
-const ep = await GetData()
+const ep = await GetEmployeeSales()
     // .then( (data) => data)
+const bks = await GetBookings()
 ---
 
 <h1>bktest</h1>
+{
+    bks.map( (item) => <p>{item.user}</p>)
+}
 
 {
 array1.map( (key) => <p>{key}</p> )
