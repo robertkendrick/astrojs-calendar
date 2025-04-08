@@ -12,7 +12,7 @@ const bks = await GetBookings()
 
 <h1>bktest</h1>
 {
-    bks.map( (item) => <p>{item.user}</p>)
+    bks.map( (item) => <p>{item.user.username} {item.date} {item.hour}</p> )
 }
 
 {

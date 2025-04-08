@@ -11,6 +11,9 @@ export async function GetEmployeeSales() {
 // query with relation
 export async function GetBookings() {
     const bookings = await prisma.bookings.findMany({
+        where: {
+            date: '2025-03-23'
+        },
         include: {
             user: true,
         }

@@ -1,8 +1,13 @@
 ---
 import "../styles/global.css"; 
 import TableHeader from './TableHeader.astro'
+import TableRow from './TableRow.astro'
+import { GetBookings } from "./GetData";
 
 const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+
+const bookings = await GetBookings()
+console.log('CTable: ', bookings)
 ---
 
 <div class="table-container">
@@ -20,21 +25,13 @@ const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
                 {
                     hours.map( (index) => <td class="tdcell">Book{index}</td>)
                 }
-                <!-- <td class="tdcell">row1</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td>
-                <td class="tdcell">row2</td> -->
             </tr>
+                <!-- <TableRow bookings = {bookings} />  -->
+                {
+                    bookings.map( row =>  
+                        <TableRow row = {row} />
+                    )
+                }
         </tbody>
     </table>
 </div>
