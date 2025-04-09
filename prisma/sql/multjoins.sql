@@ -1,6 +1,6 @@
 --
 select
-  --fb.date,
+  fb.date,
   a.username as hour8,
   b.username as hour9,
   c.username as hour10,

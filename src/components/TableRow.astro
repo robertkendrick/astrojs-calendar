@@ -1,14 +1,47 @@
 ---
-const {row} = Astro.props
+import "../styles/global.css"; 
 
+const {row} = Astro.props
+const rowValues = Object.values(row)
+// console.log('rowValues: ', rowValues)
+const date = rowValues[0]
+rowValues.shift()
+
+// split first and last names in arrays
+const tt = rowValues.map( (item: string) => {
+                // console.log(item)
+                const us = item.split(' ') 
+                // item = '<span>us[0]</span>is[1]<span>'
+                // item = us[0] + '<br>' + us[1]
+                return us
+})
+    
+    // <td class="tdcell">username=userName[0] + '<br />' + userName[1]</td>
+
+
+console.log('TableRow-tt: ', tt)
 ---
 
 
 <tr class="row">
 
-
-            <th class="thstyle">{row.date}</th>
-            <td class="tdcell">{row.user.username}</td>
-
-
+            <th class="thstyle">{date}</th>     
+            {    
+                tt.map( (item: []) => <td class="tdcell"><span>{item[0]}<br></span><span>{item[1]}</span></td> )
+            }
 </tr>
+
+
+<!-- {skills.map(skill => (
+    <h3>{skill.name}</h3>
+    <ul>
+        {skill.tags.map(tag => (
+            <li>
+                <h4 class="role ... ">
+                    <span class="invert ...">{tag}</span>
+                </h4>
+            </li>
+        ))
+        }
+    </ul>
+))} -->
