@@ -1,10 +1,17 @@
 ---
+import { string } from "astro:schema";
 import "../styles/global.css"; 
+// import {format} from 'date-fns'
 
 const {row} = Astro.props
-const rowValues = Object.values(row)
+const rowValues:any = Object.values(row)    //array with just the values
 // console.log('rowValues: ', rowValues)
-const date = rowValues[0]
+const date = new Date(rowValues[0])
+// const formDate = format(date, "eee dd MMM")
+
+const dateItems = date.toString().split(' ')    // split date to array of each item
+
+
 rowValues.shift()
 
 // split first and last names in arrays
@@ -25,7 +32,8 @@ console.log('TableRow-tt: ', tt)
 
 <tr class="row">
 
-            <th class="thstyle">{date}</th>     
+            <!-- <th class="thstyle">{formDate}</th>      -->
+            <th class="thstyle">{dateItems[0]}<br>{dateItems[2]}<br>{dateItems[1]}</th>
             {    
                 tt.map( (item: []) => <td class="tdcell"><span>{item[0]}<br></span><span>{item[1]}</span></td> )
             }

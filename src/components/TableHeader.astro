@@ -1,6 +1,11 @@
+---
+console.log('TableHeader=Astro-props: ', Astro.props)
+const ssdate = Astro.props.date
+const year = ssdate.getFullYear()
+---
 <thead class="cal-time-head">
     {/* Black square in top left corner */}
-    <th class="bg-black"></th>
+    <th class="bg-black">{year}</th>
     <th>0800</th>
     <th>0900</th>
     <th>0900</th>

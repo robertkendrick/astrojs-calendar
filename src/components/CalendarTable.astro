@@ -6,13 +6,16 @@ import { GetFlatBookings } from "./GetData";
 
 const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 
+const date = new Date('2025-03-25')
+// console.log(date.getFullYear())
+
 const bookings = await GetFlatBookings('2025-03-25')
 console.log('CTable: ', bookings)
 ---
 
 <div class="table-container">
     <table class="w-4xl">
-        <TableHeader />
+        <TableHeader date={date} />
         <tbody>
             <tr class="row">
                 <th class="thstyle">Fri<br>23<br>March</th>
