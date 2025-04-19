@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@import "flowbite/src/themes/default";
+@plugin "flowbite/plugin";
+@source "../../node_modules/flowbite";
+
 .table-container {
     overflow-x: auto;
     white-space: nowrap;
