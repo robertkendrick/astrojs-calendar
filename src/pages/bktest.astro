@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import Layout from '../layouts/Layout.astro'
 import  {GetEmployeeSales}  from '../components/GetData'
 import  {GetBookings} from '../components/GetData'
 import Movies from '../components/Movies'
@@ -12,8 +13,11 @@ const ep = await GetEmployeeSales()
 const bks = await GetBookings()
 ---
 
-<h1>bktest</h1>
+<Layout>
+<h1 class="mt-20 text-5xl">flowbyte</h1>
+<div class="m-6 w-6xl">
 <Card title="Noteworthy technology acquisitions 2021"/>
+</div>
 {
     bks.map( (item) => <p>{item.user.username} {item.date} {item.hour}</p> )
 }
@@ -29,3 +33,4 @@ ep.map( (item) => <p>{item.employeeName}</p>)
 }
 
 <p>{me}</p>
+</Layout>
