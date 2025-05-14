@@ -4,12 +4,18 @@ import TableHeader from './TableHeader.astro'
 import TableRow from './TableRow.astro'
 import { GetFlatBookings } from "./GetData";
 
+const {date} = Astro.props
+console.log('CTable-date: ', date)
+
 const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 
-const date = new Date('2025-03-25')
+// const date = new Date('2025-03-25')
+// console.log('CTable-date: ', date)
 // console.log(date.getFullYear())
 
-const bookings = await GetFlatBookings('2025-03-25')
+const bookingsDate:string = date.year+'-'+'0'+date.month+'-'+date.day
+console.log('Ctable-bookingsDate: ', bookingsDate)
+const bookings = await GetFlatBookings(bookingsDate)
 console.log('CTable: ', bookings)
 ---
 

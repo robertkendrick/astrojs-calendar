@@ -1,12 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import "../styles/global.css";
+import { Temporal } from '@js-temporal/polyfill';
 import CalendarTable from '../components/CalendarTable.astro';
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components
+// `, and `layouts` directories, and start fresh.
+
+// const twoDaysLater = Temporal.PlainDate.from('2025-05-13').add({ days: 2 });
+const date = Temporal.PlainDate.from('2025-03-25');
+console.log(date.year, date.day)
 ---
 
 <Layout>
-	<p class="bg-gray-900 text-white">Home Page</p>
-	<CalendarTable />
+	<p class="bg-gray-900 text-gray-300">Home Page</p>
+	<CalendarTable date={date}/>
 </Layout>

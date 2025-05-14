@@ -1,23 +1,23 @@
 ---
 console.log('TableHeader=Astro-props: ', Astro.props)
 const ssdate = Astro.props.date
-const year = ssdate.getFullYear()
+const year = ssdate.year
 ---
 <thead class="cal-time-head">
     {/* Black square in top left corner */}
-    <th class="bg-black">{year}</th>
-    <th>0800</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
-    <th>0900</th>
+    <th class="bg-black text-gray-300">{year}</th>
+    <th>08:00</th>
+    <th>09:00</th>
+    <th>10:00</th>
+    <th>11:00</th>
+    <th>12:00</th>
+    <th>13:00</th>
+    <th>14:00</th>
+    <th>15:00</th>
+    <th>16:00</th>
+    <th>17:00</th>
+    <th>18:00</th>
+    <th>19:00</th>
+    <th>20:00</th>
+    <th>21:00</th>
 </thead>

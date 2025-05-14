@@ -24,7 +24,7 @@ export async function GetBookings() {
     return bookings
 }
 
-export async function GetFlatBookings(targetDate) {
+export async function GetFlatBookings(targetDate:string) {
     // const bookings = await prisma.flat_bookings.findFirst({
     //     where: {
     //         date: '2025-03-25',
@@ -33,7 +33,8 @@ export async function GetFlatBookings(targetDate) {
     //         user: true,
     //     }
     // })
-
+        // const tDate = targetDate.toString()
+        console.log('GetFlatBookings-targetdate: ', targetDate)
         const bookings = await prisma.$queryRawTyped(multjoins(targetDate));
         console.log('GetFlatBookings(): ', bookings);
         return bookings;

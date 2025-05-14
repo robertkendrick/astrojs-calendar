@@ -30,4 +30,4 @@ join users k on fb.h18 = k.id
 join users l on fb.h19 = l.id
 join users m on fb.h20 = m.id
 join users n on fb.h21 = n.id
-where date = :date;
+where date = :bookingsDate;
