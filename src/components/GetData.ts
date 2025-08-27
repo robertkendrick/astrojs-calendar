@@ -37,7 +37,7 @@ export async function GetFlatBookings(targetDate:string) {
         console.log('GetFlatBookings-targetdate: ', targetDate)
         const bookings = await prisma.$queryRawTyped(multjoins(targetDate));
         console.log('GetFlatBookings(): ', bookings);
-        return bookings;
+        return bookings[0];
     
         // console.log('GetFlatBookings(): ', bookings)
         // return bookings

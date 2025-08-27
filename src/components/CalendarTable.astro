@@ -15,8 +15,8 @@ const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 
 const bookingsDate:string = date.year+'-'+'0'+date.month+'-'+date.day
 console.log('Ctable-bookingsDate: ', bookingsDate)
-const bookings = await GetFlatBookings(bookingsDate)
-console.log('CTable: ', bookings)
+const dRow = await GetFlatBookings(bookingsDate)
+console.log('CTable: ', dRow)
 ---
 
 <div class="table-container w-3/4 mx-auto">
@@ -37,11 +37,11 @@ console.log('CTable: ', bookings)
                 }
             </tr>
                 <!-- <TableRow bookings = {bookings} />  -->
-                {
-                    bookings.map( row =>  
-                        <TableRow row = {row} />
+
+                    // one day consisting of 14 hours of bookings
+                        <TableRow row = {dRow} />
                     )
-                }
+
         </tbody>
     </table>
 </div>
