@@ -1,0 +1,64 @@
+---
+import "../styles/global.css"; 
+import TableHeader from './TableHeader.astro'
+import TableRow from './TableRow.astro'
+import { GetFlatBookings } from "./GetData";
+import { effect } from "astro:schema";
+
+const days = [0,1,1,1,1,1,1];
+const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+
+const date = new Date();
+date.setDate(date.getDate() - 3);
+console.log(date)
+
+// console.log(date.getFullYear())
+const textdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const textmonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] 
+
+// only data for this date in db
+const bookings = await GetFlatBookings('2025-03-25')
+console.log('CTable: ', bookings)
+---
+
+<div class="table-container">
+    <table class="w-4xl">
+        <TableHeader date={date} />     
+        <tbody>
+        {
+            days.map( (index) => {
+                console.log('index: ', index)
+                date.setDate(date.getDate() + index);
+                const dday = date.getDay()
+                const ddate = date.getDate()
+                const dmonth = date.getMonth()
+                // const dyear = date.getFullYear()
+                console.log('date: ', date, 'dday: ', dday, 'dmonth: ', dmonth)
+
+                return (
+                    <tr class="row">
+                    {/* vertical date header */}
+                    <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
+                    {
+                        hours.map( (index) => <td class="tdcell">Book</td>)
+                    }
+                    </tr>
+                )
+            })   
+        }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    table {
+      @apply border;
+    }
+</style>
+
+<script>
+    const tr = document.querySelectorAll('.row')
+    for (const row of tr) {
+        row.addEventListener('click', () => window.location.href='orig')
+    }
+</script>

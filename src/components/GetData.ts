@@ -10,10 +10,10 @@ export async function GetEmployeeSales() {
 }
 
 // query with relation
-export async function GetBookings() {
+export async function GetBookings(targetDate: string) {
     const bookings = await prisma.bookings.findMany({
         where: {
-            date: '2025-03-23'
+            date: targetDate,
         },
         include: {
             user: true,
@@ -24,7 +24,7 @@ export async function GetBookings() {
     return bookings
 }
 
-export async function GetFlatBookings(targetDate) {
+export async function GetFlatBookings(targetDate: string) {
     // const bookings = await prisma.flat_bookings.findFirst({
     //     where: {
     //         date: '2025-03-25',

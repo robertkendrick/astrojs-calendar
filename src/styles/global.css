@@ -8,11 +8,30 @@
 .cal-time-head {
     height: 30px;
     color: white;
-    background-color: black;
+    background-color: rgb(49, 47, 47);
     font-size: 9pt;
 }
   
+.tdcellpast {
+      width: 7%;
+      border-right: thin black solid;
+      border-bottom: thin black solid; 
+      height: 70px;
+      background-color: rgb(74, 74, 201);
   
+      /* font-family: Arial, Helvetica, sans-serif; */
+      font-size: 0.75rem;
+      color: black;
+      /* vertical-align: middle; */
+      text-align: center;
+      overflow: hidden;
+      /* display: flex;
+      flex-direction: row; */
+}
+
+.tdRowPast { background-color: silver;}
+.tdRow { background-color: white;}
+
 .tdcell {
       width: 7%;
       border-right: thin black solid;
