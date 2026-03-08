@@ -5,6 +5,7 @@
 /* @source "../../node_modules/flowbite"; */
 
 .table-container {
+    margin-left: 30px;
     overflow-x: auto;
     white-space: nowrap;
   }
