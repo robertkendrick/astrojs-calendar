@@ -26,9 +26,12 @@ console.log('CTable: ', bookings)
         <TableHeader date={date} />     
         <tbody>
         {
-            days.map( (index) => {
-                console.log('index: ', index)
-                date.setDate(date.getDate() + index);
+            days.map( (item, index) => {
+                console.log('item: ', item, 'index: ', index)   // index will be < 2 for past days
+                // index < 2 
+                //     ? class:list="bg-gray-300" 
+                //     : class:list=""
+                date.setDate(date.getDate() + item);
                 const dday = date.getDay()
                 const ddate = date.getDate()
                 const dmonth = date.getMonth()
@@ -36,7 +39,8 @@ console.log('CTable: ', bookings)
                 console.log('date: ', date, 'dday: ', dday, 'dmonth: ', dmonth)
 
                 return (
-                    <tr class="row">
+                    <!-- <tr class="row"> -->
+                    <tr class={index >= 2 ? "bg-white" : "bg-gray-200"}>
                     {/* vertical date header */}
                     <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
                     {
