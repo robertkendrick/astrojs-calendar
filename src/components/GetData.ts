@@ -35,7 +35,11 @@ export async function GetBookings(targetDate: string) {
 
 export async function GetMemberDays() {
     console.log('--------------GetMemberDays()')
-    const memberDays = await prisma.memberDays.findMany()
+    const memberDays = await prisma.memberDays.findMany({
+        include: {
+            memberFK: true,
+        }
+    })
     return memberDays
 }
 
