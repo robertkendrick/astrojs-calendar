@@ -2,9 +2,13 @@
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
-   "compilerOptions": {
+  "compilerOptions": {
      "jsx": "react-jsx",
-     "jsxImportSource": "preact"
-   }
-}
-
+     "jsxImportSource": "preact",
+     "module": "ESNext",
+     "moduleResolution": "bundler",
+     "target": "ES2023",
+     "strict": true,
+     "esModuleInterop": true
+    }
+}  

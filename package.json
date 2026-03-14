@@ -11,15 +11,17 @@
   "dependencies": {
     "@astrojs/preact": "^4.0.8",
     "@js-temporal/polyfill": "^0.5.1",
-    "@prisma/client": "^6.5.0",
+    "@prisma/adapter-better-sqlite3": "^7.5.0",
+    "@prisma/client": "^7.5.0",
     "@tailwindcss/vite": "^4.1.1",
     "astro": "^5.5.6",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.3.1",
     "flowbite": "^3.1.2",
     "preact": "^10.26.5",
     "tailwindcss": "^4.1.1"
   },
   "devDependencies": {
-    "prisma": "^6.5.0"
+    "prisma": "^7.5.0"
   }
 }

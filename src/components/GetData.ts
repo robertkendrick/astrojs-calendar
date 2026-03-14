@@ -1,7 +1,16 @@
-import { PrismaClient } from "@prisma/client"
-import { multjoins } from '@prisma/client/sql'
+// import { PrismaClient } from "@prisma/client"
+// import { PrismaClient } from './generated/prisma'
+// import { PrismaClient } from '../../prisma/generated/prisma'
 
-const prisma = new PrismaClient()
+// import { multjoins } from '@prisma/client/sql'
+
+// const prisma = new PrismaClient()
+
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import { PrismaClient } from "../../prisma/generated/prisma/client";
+
+const adapter = new PrismaBetterSqlite3({ url: "file:./prisma/dev.db" });
+const prisma = new PrismaClient({ adapter });
 
 export async function GetEmployeeSales() {
     const employeeSales = await prisma.employeeSales.findMany()
@@ -22,6 +31,12 @@ export async function GetBookings(targetDate: string) {
 
     console.log('GetBookings(): ', bookings)
     return bookings
+}
+
+export async function GetMemberDays() {
+    console.log('--------------GetMemberDays()')
+    const memberDays = await prisma.memberDays.findMany()
+    return memberDays
 }
 
 export async function GetFlatBookings(targetDate: string) {

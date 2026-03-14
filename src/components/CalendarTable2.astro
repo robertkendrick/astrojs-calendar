@@ -2,8 +2,10 @@
 import "../styles/global.css"; 
 import TableHeader from './TableHeader.astro'
 import TableRow from './TableRow.astro'
-import { GetFlatBookings } from "./GetData";
+// import { GetFlatBookings, GetMemberDays } from "./GetData";
+import { GetMemberDays } from "./GetData";
 import { effect } from "astro:schema";
+
 
 const days = [0,1,1,1,1,1,1];
 const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
@@ -17,8 +19,11 @@ const textdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const textmonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] 
 
 // only data for this date in db
-const bookings = await GetFlatBookings('2025-03-25')
-console.log('CTable: ', bookings)
+// const bookings = await GetFlatBookings('2025-03-25')
+// console.log('CTable: ', bookings)
+
+const memberDays = await GetMemberDays()
+console.log('************memberDays: ', memberDays )
 ---
 
 <div class="table-container">
