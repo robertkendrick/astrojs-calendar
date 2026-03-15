@@ -49,7 +49,7 @@ console.log('************memberDays: ', memberDays )
                     {/* vertical date header */}
                     <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
                     {
-                        hours.map( (index) => <td class="tdcell">Book</td>)
+                        hours.map( (index) => <td class="tdcell">{memberDays[index].memberFK.username}</td>)
                     }
                     </tr>
                 )
