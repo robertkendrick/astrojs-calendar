@@ -4,8 +4,8 @@
   "exclude": ["dist"],
   "compilerOptions": {
     //  "jsx": "preserve", // Or "react-jsx" if necessary
-    //  "jsx": "react-jsx",
-    //  "jsxImportSource": "preact",
+     "jsx": "react-jsx",
+     "jsxImportSource": "preact",
      "module": "ESNext",
      "moduleResolution": "bundler",
      "target": "ES2023",

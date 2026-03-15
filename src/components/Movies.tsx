@@ -10,6 +10,7 @@ const Movies: FunctionalComponent = () => {
   // Output the result to the page
   return (
     <>
+    <h1>Movie data</h1>
     <div>{JSON.stringify(data)}</div>
     <p>And that is it</p>
     </>
