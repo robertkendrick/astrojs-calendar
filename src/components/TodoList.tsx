@@ -1,51 +1,45 @@
-import type { FunctionComponent } from 'preact';
 import { signal } from '@preact/signals';
 
-// Check if our logic works
-// console.log(todos.value);
-// Logs: [{text: "Buy groceries"}, {text: "Walk the dog"}]
+const text = signal('');
 
-// Simulate adding a new todo
-// text.value = 'Tidy up';
-// addTodo();
+// ******** WHY DOES todos NEED TO BE A SIGNAL !
+// because when an item is removed from the todos array it needs to be a signal so that the UI gets updated
+// If it isnt a signal it would not get updated and the UI would still being showing it.
 
-// Check that it added the new item and cleared the `text` signal:
-// console.log(todos.value);
-// Logs: [{text: "Buy groceries"}, {text: "Walk the dog"}, {text: "Tidy up"}]
+// const todos = signal([{ text: 'Buy groceries' }, { text: 'Walk the dog' }]);
+let todos = [{ text: 'Buy groceries' }, { text: 'Walk the dog' }]
 
-// console.log(text.value); // Logs: ""
-
-
-
-export default function TodoList<FunctionalComponent>() {
-    
-    const todos = signal([{ text: 'Buy groceries' }, { text: 'Walk the dog' }]);
-    
-    // We'll use this for our input later
-    const text = signal('');
-    
+//--------------------------------------------------------------------------------------------------------
+export default function TodoList() {
     const onInput = event => {
-        text.value = event.currentTarget.value
+        // event.preventDefault();
+        text.value = event.target.value
         // console.log(event)
-        console.log(text.value)
+        console.log('onInput: ', text.value)
     }
-
-    function addTodo() {
+        
+     function addTodo(e) {
         console.log('addTodo: ', text.value)
-        todos.value = [...todos.value, { text: text.value }];
+        // todos.value = [...todos.value, { text: text.value }];
+        todos = [...todos, { text: text.value }];
         text.value = ''; // Clear input value on add
     }
     
     function removeTodo(todo) {
-        todos.value = todos.value.filter(t => t !== todo);
+        console.log('removeTodo: ', todo)
+        // todos.value = todos.value.filter(t => t !== todo);
+        todos = todos.filter(t => t !== todo);
+        console.log(todos)
     }
 
     return (
 		<>
-			<input value={text.value} onInput={onInput} />
+        {console.log('re-rendering...')}
+			<input type="text" value={text.value} onInput={onInput} />
 			<button onClick={addTodo}>Add</button>
 			<ul>
-				{todos.value.map(todo => (
+				{/* {todos.value.map(todo => ( */}
+				{todos.map(todo => (
 					<li>
 						{todo.text} <button onClick={() => removeTodo(todo)}>❌</button>
 					</li>

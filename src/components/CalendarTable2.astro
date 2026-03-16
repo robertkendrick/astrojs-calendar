@@ -27,7 +27,7 @@ console.log('************memberDays: ', memberDays )
 ---
 
 <div class="table-container">
-    <table class="w-4xl">
+    <table class="">
         <TableHeader date={date} />     
         <tbody>
         {
@@ -49,7 +49,7 @@ console.log('************memberDays: ', memberDays )
                     {/* vertical date header */}
                     <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
                     {
-                        hours.map( (index) => <td class="tdcell">{memberDays[index].memberFK.username}</td>)
+                        hours.map( (idx) => <td class="tdcell">{memberDays[index].memberFK.username}</td>)
                     }
                     </tr>
                 )
