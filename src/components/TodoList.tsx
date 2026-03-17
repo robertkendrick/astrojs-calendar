@@ -4,7 +4,7 @@ const text = signal('');
 
 // ******** WHY DOES todos NEED TO BE A SIGNAL !
 // because when an item is removed from the todos array it needs to be a signal so that the UI gets updated
-// If it isnt a signal it would not get updated and the UI would still being showing it.
+// If it isnt a signal it would not get updated and the UI would still be showing it.
 
 // const todos = signal([{ text: 'Buy groceries' }, { text: 'Walk the dog' }]);
 let todos = [{ text: 'Buy groceries' }, { text: 'Walk the dog' }]
