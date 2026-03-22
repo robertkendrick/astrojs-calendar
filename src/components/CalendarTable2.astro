@@ -4,16 +4,18 @@ import "../styles/global.css";
 import TableHeader from './TableHeader.astro'
 import TableRow from './TableRow.astro'
 // import { GetFlatBookings, GetMemberDays } from "./GetData";
-import { GetMemberDays } from "./GetData";
-import { effect } from "astro:schema";
+import { Get7MemberDays } from "./GetData";
+// import { effect } from "astro:schema";
 
 
 const days = [0,1,1,1,1,1,1];
 const hours = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
 
-const date = new Date();
+const {date} = Astro.props
+// const date = new Date();
 date.setDate(date.getDate() - 2);
 console.log(date)
+const startDate = date.getDate()
 
 // console.log(date.getFullYear())
 const textdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
@@ -23,8 +25,8 @@ const textmonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep
 // const bookings = await GetFlatBookings('2025-03-25')
 // console.log('CTable: ', bookings)
 
-const memberDays = await GetMemberDays()
-console.log('************memberDays: ', memberDays )
+const memberDays = await Get7MemberDays(startDate)
+// console.log('************memberDays: ', memberDays )
 ---
 
 <div class="table-container">
@@ -33,7 +35,7 @@ console.log('************memberDays: ', memberDays )
         <tbody>
         {
             days.map( (item, index) => {
-                console.log('item: ', item, 'index: ', index)   // index will be < 2 for past days
+                // console.log('item: ', item, 'index: ', index)   // index will be < 2 for past days
                 // index < 2 
                 //     ? class:list="bg-gray-300" 
                 //     : class:list=""
@@ -42,7 +44,7 @@ console.log('************memberDays: ', memberDays )
                 const ddate = date.getDate()
                 const dmonth = date.getMonth()
                 // const dyear = date.getFullYear()
-                console.log('date: ', date, 'dday: ', dday, 'dmonth: ', dmonth)
+                // console.log('date: ', date, 'dday: ', dday, 'dmonth: ', dmonth)
 
                 return (
                     <!-- <tr class="row"> -->
@@ -67,8 +69,8 @@ console.log('************memberDays: ', memberDays )
 </style>
 
 <script>
-    const tr = document.querySelectorAll('.row')
+    {/* const tr = document.querySelectorAll('.row')
     for (const row of tr) {
         row.addEventListener('click', () => window.location.href='orig')
-    }
+    } */}
 </script>
