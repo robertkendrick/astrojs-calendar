@@ -112,7 +112,7 @@ export async function Get77MemberDays(startDay: number) {
         include: {
             memberFK: true,
         },
-    })
+    }) as []
     return DaysSort(result)
 }
 
