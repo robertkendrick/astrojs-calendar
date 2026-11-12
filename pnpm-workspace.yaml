@@ -4,3 +4,9 @@ allowBuilds:
   esbuild: true
   prisma: true
   sharp: true
+onlyBuiltDependencies:
+  - '@prisma/engines'
+  - better-sqlite3
+  - esbuild
+  - prisma
+  - sharp
