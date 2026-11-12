@@ -2,10 +2,23 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "./node_modules/.bin/astro dev",
-      "name": "Development server",
+      "name": "Astro: Server (Dev)",
+      "type": "node-terminal",
       "request": "launch",
-      "type": "node-terminal"
+      "command": "npm run dev"
+    },
+    {
+      "name": "Astro: Client (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Astro: Full-Stack (Server + Chrome)",
+      "configurations": ["Astro: Server (Dev)", "Astro: Client (Chrome)"]
     }
   ]
 }

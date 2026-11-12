@@ -26,9 +26,11 @@ console.log('CTable: ', bookings)
         <TableHeader date={date} />     
         <tbody>
         {
+            // for each day set a left side date and a row of 14 hours
             days.map( (index) => {
                 console.log('index: ', index)
-                date.setDate(date.getDate() + index);
+                // index added to date with .setDate() so index must be 0..1..1..1 etc
+                date.setDate(date.getDate() + index); 
                 const dday = date.getDay()
                 const ddate = date.getDate()
                 const dmonth = date.getMonth()
@@ -37,10 +39,11 @@ console.log('CTable: ', bookings)
 
                 return (
                     <tr class="row">
-                    {/* vertical date header */}
-                    <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
+                    {/* vertical date header down left side of table*/}
+                    <th class="thstyle">{textdays[dday]}<br>{ddate}<br>{textmonths[dmonth]}</th>
                     {
-                        hours.map( (index) => <td class="tdcell">Book</td>)
+                        // add the 14 hours in a row
+                        hours.map( (hourIndex) => <td class="tdcell">Book{hourIndex}</td>) 
                     }
                     </tr>
                 )
@@ -51,12 +54,13 @@ console.log('CTable: ', bookings)
 </div>
 
 <style>
-    table {
+    table { 
       @apply border;
     }
 </style>
 
 <script>
+    // make all the hour slots clickable
     const tr = document.querySelectorAll('.row')
     for (const row of tr) {
         row.addEventListener('click', () => window.location.href='orig')
