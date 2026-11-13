@@ -47,7 +47,7 @@ const memberDays = await Get7MemberDays(startDate)
                 return (
                     <tr class={index >= 2 ? "bg-white" : "bg-gray-200"}>
                     {/* vertical date header */}
-                    <th class="thstyle">{ddate}<br>{textdays[dday]}<br>{textmonths[dmonth]}</th>
+                    <th class="thstyle">{textdays[dday]}<br>{ddate}<br>{textmonths[dmonth]}</th>
                     {
                         hours.map( (idx) => <td class="tdcell">{memberDays[index].memberFK.username}</td>)
                     }
