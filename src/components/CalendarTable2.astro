@@ -34,6 +34,8 @@ const memberDays = await Get7MemberDays(startDate)
         <TableHeader date={date} />     
         <tbody>
         {
+            // for each day set a left side date and a row of 14 hours
+            // index added to date with .setDate() so index must be 0..1..1..1 etc
             days.map( (item, index) => {
                 // console.log('item: ', item, 'index: ', index)   // index will be < 2 for past days
                 // index < 2 
