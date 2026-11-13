@@ -35,12 +35,8 @@ const memberDays = await Get7MemberDays(startDate)
         <tbody>
         {
             // for each day set a left side date and a row of 14 hours
-            // index added to date with .setDate() so index must be 0..1..1..1 etc
             days.map( (item, index) => {
-                // console.log('item: ', item, 'index: ', index)   // index will be < 2 for past days
-                // index < 2 
-                //     ? class:list="bg-gray-300" 
-                //     : class:list=""
+                // item added to date with .setDate() so item must be 0..1..1..1 etc
                 date.setDate(date.getDate() + item);
                 const dday = date.getDay()
                 const ddate = date.getDate()
