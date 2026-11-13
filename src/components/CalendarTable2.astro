@@ -41,14 +41,13 @@ const memberDays = await Get7MemberDays(startDate)
                 const dday = date.getDay()
                 const ddate = date.getDate()
                 const dmonth = date.getMonth()
-                // const dyear = date.getFullYear()
-                // console.log('date: ', date, 'dday: ', dday, 'dmonth: ', dmonth)
 
                 return (
                     <tr class={index >= 2 ? "bg-white" : "bg-gray-200"}>
-                    {/* vertical date header */}
-                    <th class="thstyle">{textdays[dday]}<br>{ddate}<br>{textmonths[dmonth]}</th>
+                        {/* vertical date header down left side of table*/}
+                        <th class="thstyle">{textdays[dday]}<br>{ddate}<br>{textmonths[dmonth]}</th>
                     {
+                        // add the 14 hours in a row
                         hours.map( (idx) => <td class="tdcell">{memberDays[index].memberFK.username}</td>)
                     }
                     </tr>
